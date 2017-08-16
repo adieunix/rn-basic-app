@@ -1,0 +1,3 @@
+rootProject.name = 'Kikuk'
+
+include ':app'
