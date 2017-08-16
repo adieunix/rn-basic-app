@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import { View, Text, Button } from "react-native";
+//import { View, Text, Button } from "react-native";
+import { Container, Header, Content, Button, Text } from 'native-base';
 import AndroidBackButton from '../helpers/AndroidBackButton';
 import {connect} from "react-redux";
 
@@ -17,14 +18,12 @@ class Home extends Component {
 
     render() {
         return (
-            <View>
+            <Container>
                 <Text>HOME PAGE</Text>
-                <Button
-                    onPress={this.buttonPress}
-                    title="Learn More"
-                    color="#841584"
-                />
-            </View>
+                <Button danger onPress={this.buttonPress}>
+                    <Text>Danger</Text>
+                </Button>
+            </Container>
         );
     }
 }
