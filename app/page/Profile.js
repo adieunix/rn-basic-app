@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { View, Text } from "react-native";
-import AndroidBackButton from './AndroidBackButton';
+import AndroidBackButton from '../helpers/AndroidBackButton';
 import {connect} from "react-redux";
 
 class Profile extends Component {

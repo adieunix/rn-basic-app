@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { View, Text, Button } from "react-native";
-import AndroidBackButton from './AndroidBackButton';
+import AndroidBackButton from '../helpers/AndroidBackButton';
 import {connect} from "react-redux";
 
 class Home extends Component {
