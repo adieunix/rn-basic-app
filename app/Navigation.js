@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { View, Text } from "react-native";
+import { View, Text, BackAndroid } from "react-native";
 import {addNavigationHelpers, StackNavigator} from "react-navigation";
 import {RouteConfiguration, NavigationConfiguration} from './NavigationConfiguration';
 import {connect} from "react-redux";
@@ -13,7 +13,6 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('TAEK',dispatch);
     return {
         dispatch: dispatch
     }
@@ -27,14 +26,7 @@ class Navigation extends Component {
                     flex: 1,
                     backgroundColor: '#fff'
                 }}>
-                <Navigator
-                    ref="navigation"
-                    navigation={
-                        addNavigationHelpers({
-                            dispatch: this.props.dispatch,
-                            state: this.props.mainNavigator
-                        })
-                    }/>
+                <Navigator ref="navigation" />
             </View>
         );
     }

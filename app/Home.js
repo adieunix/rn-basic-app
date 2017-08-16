@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
+import AndroidBackButton from './AndroidBackButton';
 import {connect} from "react-redux";
 
 class Home extends Component {
@@ -8,9 +9,22 @@ class Home extends Component {
         console.log("Home Page Props X: " + JSON.stringify(props));
     }
 
+    buttonPress = async () => {
+        this.props.navigation.navigate(
+            'Profile'
+        )
+    }
+
     render() {
         return (
-            <Text>HOME PAGE</Text>
+            <View>
+                <Text>HOME PAGE</Text>
+                <Button
+                    onPress={this.buttonPress}
+                    title="Learn More"
+                    color="#841584"
+                />
+            </View>
         );
     }
 }
