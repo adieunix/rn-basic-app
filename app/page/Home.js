@@ -1,7 +1,8 @@
 import React, {Component} from "react";
 //import { View, Text, Button } from "react-native";
-import { Container, Header, Icon, Button, Text, Left, Right, Body, Title } from 'native-base';
+import { Container, Header, Icon, Button, Text, Left, Right, Body, Title, List, ListItem, Content } from 'native-base';
 import AndroidBackButton from '../helpers/AndroidBackButton';
+import HeaderHome from '../helpers/HeaderHome';
 import * as utility from "../helpers/Utilities";
 import * as constants from "../helpers/Constants";
 import {connect} from "react-redux";
@@ -10,18 +11,30 @@ class Home extends Component {
     constructor(props) {
         super(props);
         console.log("Home Page Props X: " + JSON.stringify(props));
+        this.state = {
+            data: []
+        }
     }
 
-    componentDidMount = () => {
-        utility.getData(constants.API_GET_CONTENT, {
-            partner_store_id: "1",
-            id: 55
+    componentWillMount = () => {
+        utility.getData(constants.API_GET_CONTENT_GENRES, {
+            partner_store_id: "2",
+            content_category_id: 10
         }).then((result) =>
         {
             console.log('RESSSSSSSSSSSSSSSSS',result);
+            this.setDataState(result);
         }).catch((error) => {
             console.log('ERROOOOOOOOOOOOOOOR',error);
         });
+    }
+
+    setDataState = (data) => {
+        var state = {};
+        var newData = this.state.data.concat(data);
+        Object.assign(state, this.state);
+        state.data = newData;
+        this.setState(state);
     }
 
     buttonPress = async () => {
@@ -33,25 +46,20 @@ class Home extends Component {
     render() {
         return (
             <Container>
-                <Header>
-                    <Left>
-                        <Button transparent>
-                            <Icon name='arrow-back' />
-                        </Button>
-                    </Left>
-                    <Body>
-                        <Title style={{marginLeft:-30}}>Home</Title>
-                    </Body>
-                    <Right>
-                        <Button transparent>
-                            <Icon name='menu' />
-                        </Button>
-                    </Right>
-                </Header>
-                <Text>HOME PAGE</Text>
+                <HeaderHome
+                    title="Home"
+                />
                 <Button danger onPress={this.buttonPress}>
-                    <Text>Danger</Text>
+                    <Text>To Profile</Text>
                 </Button>
+                <List dataArray={this.state.data}
+                      renderRow={(item) =>
+                            <ListItem>
+                                <Text>{item.name}</Text>
+                            </ListItem>
+                        }
+                >
+                </List>
             </Container>
         );
     }
