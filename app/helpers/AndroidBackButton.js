@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {BackHandler} from "react-native";
+import SplashScreen from 'react-native-splash-screen';
 import {connect} from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -25,6 +26,7 @@ class AndroidBackButton extends Component {
     }
 
     backAction = () => {
+        SplashScreen.hide();
         var index = this.props.mainNavigator.index;
         if (index > 1) {
             var targetIndex = index;

@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { View, Text, BackAndroid } from "react-native";
+import SplashScreen from 'react-native-splash-screen';
 import {addNavigationHelpers, StackNavigator} from "react-navigation";
 import {RouteConfiguration, NavigationConfiguration} from './NavigationConfiguration';
 import {connect} from "react-redux";
@@ -19,6 +20,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Navigation extends Component {
+    componentDidMount() {
+        SplashScreen.hide();
+    }
+
     render() {
         return (
             <View
