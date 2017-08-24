@@ -31,7 +31,7 @@ class AndroidBackButton extends Component {
         if(index > 1) {
             if(this.props.navigation.state.routeName == 'Home') return BackHandler.exitApp();
             console.log('BACK');
-            return this.props.navigation.goBack();            
+            return this.props.navigation.goBack();
         } else if(index == 1) {
             console.log('EXIT');
             return BackHandler.exitApp();
