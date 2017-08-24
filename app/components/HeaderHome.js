@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Header, Icon, Button, Text, Left, Right, Body, Title } from 'native-base';
-import AndroidBackButton from '../helpers/AndroidBackButton';
 
 class HeaderHome extends Component {
     constructor(props) {

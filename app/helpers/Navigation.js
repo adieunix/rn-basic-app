@@ -20,6 +20,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 class Navigation extends Component {
+    constructor(props) {
+        super(props);
+    }
+
     componentDidMount() {
         SplashScreen.hide();
     }
@@ -31,7 +35,15 @@ class Navigation extends Component {
                     flex: 1,
                     backgroundColor: '#fff'
                 }}>
-                <Navigator ref="navigation" />
+                <Navigator
+                    ref="navigation"
+                    navigation={
+                        addNavigationHelpers({
+                            dispatch: this.props.dispatch,
+                            state: this.props.mainNavigator
+                        })
+                    }
+                />
             </View>
         );
     }

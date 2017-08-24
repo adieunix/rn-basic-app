@@ -1,11 +1,11 @@
 import React, {Component} from "react";
-//import { View, Text, Button } from "react-native";
+//import { BackHandler  } from "react-native";
 import { Container, Header, Icon, Button, Text, Left, Right, Body, Title, List, ListItem, Content, Spinner } from 'native-base';
-import AndroidBackButton from '../helpers/AndroidBackButton';
 import HeaderHome from '../components/HeaderHome';
 import * as utility from "../helpers/Utilities";
 import * as constants from "../helpers/Constants";
 import {connect} from "react-redux";
+import AndroidBackButton from '../components/AndroidBackButton';
 
 class Home extends Component {
     constructor(props) {
@@ -47,6 +47,9 @@ class Home extends Component {
     render() {
         return (
             <Container>
+                <AndroidBackButton
+                    navigation={this.props.navigation}
+                />
                 <HeaderHome
                     title="Home"
                 />
